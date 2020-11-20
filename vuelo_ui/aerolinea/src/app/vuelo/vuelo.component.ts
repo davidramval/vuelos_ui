@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class VueloComponent implements OnInit {
 
   vuelos : Vuelo[];
+  
 
   constructor(
     private router: Router,
@@ -20,22 +21,18 @@ export class VueloComponent implements OnInit {
     this.obtenerVuelos();  
   }
 
-  seleccionarVuelo(idVuelo : any) {
-    this.router.navigate(['form'],
-      {
-        queryParams: {
-          paramIdVuelo : idVuelo
-        }
-      }
-    );
+  seleccionarVuelo(vuelo : any) {
+    this.vueloService.vueloSelected = vuelo;
+    this.router.navigate(['vueloDetail']);
   }
 
   obtenerVuelos(){
     this.vueloService.getAll().subscribe((data:Vuelo[])=>{
       this.vuelos = data;
     });
-
   }
+
+  
 
   ngOnInit(): void {
   }

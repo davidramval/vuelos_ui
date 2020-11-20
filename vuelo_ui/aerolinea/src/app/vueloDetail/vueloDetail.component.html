@@ -1,0 +1,155 @@
+<form>
+  <h3>Detalles del vuelo</h3>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Id del vuelo</span>
+      </div>
+      <input type="text" class="form-control" name="id" [(ngModel)]="vuelo.id" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Codigo del avion</span>
+      </div>
+      <input type="text" class="form-control" name="codigoAvion" [(ngModel)]="vuelo.codigoAvion" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Numero del vuelo</span>
+      </div>
+      <input type="text" class="form-control" name="numeroVuelo" [(ngModel)]="vuelo.numeroVuelo" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Fecha de salida</span>
+      </div>
+      <input type="text" class="form-control" name="fechaSalida" [(ngModel)]="vuelo.fechaSalida" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Ciudad de salida </span>
+      </div>
+      <input type="text" class="form-control" name="ciudadSalida" [(ngModel)]="vuelo.ciudadSalida.nombreCiudad" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3 col-lg-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Ciudad de destino</span>
+      </div>
+      <input type="text" class="form-control" name="ciudadDestino" [(ngModel)]="vuelo.ciudadDestino.nombreCiudad" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+
+  <h3>Informacion del pasajero</h3>
+  <div class="row">
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Id</span>
+      </div>
+      <input type="text" class="form-control" name="idPasajero" [(ngModel)]="pasajero.id" aria-label="Username" aria-describedby="basic-addon1" disabled>
+    </div>
+
+    <div class="input-group mb-3 col-lg-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nro documento</span>
+      </div>
+      <input type="text" class="form-control" name="numeroDocumento" [(ngModel)]="pasajero.numeroDocumento" (change)="getPasajeroByDocumento()" [disabled]="pasajero.id" aria-label="Username" aria-describedby="basic-addon1">
+      <button [hidden]="showFormPasajero">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+          <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Tipo de documento</span>
+      </div>
+      <select class="custom-select" id="inputGroupSelect01" name="tipoDocumento" [(ngModel)]="pasajero.tipoDocumento" [disabled]="pasajero.id">
+        <option selected></option>
+        <option value="cc">C.C</option>
+        <option value="ce">C.E</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nombres</span>
+      </div>
+      <input type="text" class="form-control" name="nombres" [(ngModel)]="pasajero.nombres" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Apellidos</span>
+      </div>
+      <input type="text" class="form-control" name="apellidos" [(ngModel)]="pasajero.apellidos" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Telefono</span>
+      </div>
+      <input type="text" class="form-control" name="telefono" [(ngModel)]="pasajero.telefono" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Correo</span>
+      </div>
+      <input type="text" class="form-control" name="correo" [(ngModel)]="pasajero.correo" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Direccion</span>
+      </div>
+      <input type="text" class="form-control" name="direccion" [(ngModel)]="pasajero.direccion" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="row">
+    <div class = "d-flex justify-content-around col-lg-12">
+      <button type="button" class="btn btn-secondary" (click)="clearPasajero()" >Limpiar pasajero</button>
+      <button type="button" class="btn btn-success" (click)="savePasajero()" [hidden]="!habilitaGuardar">Guardar pasajero</button>
+      <button type="button" class="btn btn-success" (click)="agregarPasajero()" [hidden]="!pasajero.id">Agregar a vuelo</button>
+      <button type="button" class="btn btn-primary" (click)="updatePasajero()" [hidden]="!pasajero.id">Editar pasajero</button>
+    </div>
+  </div>
+
+
+  <h3>Lista de pasajeros en este vuelo</h3>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id pasajero</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Tipo de docuemnto</th>
+          <th scope="col">Numero de documento</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Direccion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let pasajero of vuelo.pasajeroList; let i = index" [attr.data-index]="i">
+          <th scope="row">{{pasajero.id}}</th>
+          <td>{{pasajero.nombres}}</td>
+          <td>{{pasajero.apellidos}}</td>
+          <td>{{pasajero.tipoDocumento}}</td>
+          <td>{{pasajero.numeroDocumento}}</td>
+          <td>{{pasajero.telefono}}</td>
+          <td>{{pasajero.correo}}</td>
+          <td>{{pasajero.direccion}}</td>
+          <td>
+            <button type="button" class="btn btn-danger"(click)="quitarPasajero(i)" [hidden]="!pasajero.id">Quitar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</form>
+
+  
+ 

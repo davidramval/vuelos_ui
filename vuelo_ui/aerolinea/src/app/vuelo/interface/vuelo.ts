@@ -1,4 +1,5 @@
 import { Ciudad } from './ciudad';
+import { Pasajero } from './pasajero';
 
 export class Vuelo {
     "id": number;
@@ -7,5 +8,5 @@ export class Vuelo {
     "fechaSalida": Date;
     "ciudadSalida": Ciudad;
     "ciudadDestino": Ciudad;
-    "pasajeroList": [];
+    "pasajeroList": Pasajero[];
 }

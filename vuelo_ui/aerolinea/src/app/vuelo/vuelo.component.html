@@ -1,24 +1,33 @@
+<div>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">id</th>
-        <th scope="col">numeroVuelo</th>
-        <th scope="col">codigoAvion</th>
-        <th scope="col">fechaSalida</th>
-        <th scope="col">ciudadSalida</th>
-        <th scope="col">ciudadDestino</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let vuelo of vuelos">
-        <th scope="row">{{vuelo.id}}</th>
-        <td>{{vuelo.numeroVuelo}}</td>
-        <td>{{vuelo.codigoAvion}}</td>
-        <td>{{vuelo.fechaSalida | date: 'dd-MM-yyyy'}}</td>
-        <td>{{vuelo.ciudadSalida.nombreCiudad}}</td>
-        <td>{{vuelo.ciudadDestino.nombreCiudad}}</td>
-        <a class="btn btn-primary" (click)="seleccionarVuelo(vuelo.id)" >Consultar</a>
-      </tr>
-    </tbody>
-  </table>
+  <div style="text-align:center">
+      <h1>
+        {{ 'HOME.TITLE' | translate }}
+      </h1>  
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id del vuelo</th>
+            <th scope="col">Numero de vuelo</th>
+            <th scope="col">Numero del avion</th>
+            <th scope="col">Fecha de salida del vuelo</th>
+            <th scope="col">Ciudad de salida</th>
+            <th scope="col">Ciudad de destino</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let vuelo of vuelos">
+            <th scope="row">{{vuelo.id}}</th>
+            <td>{{vuelo.numeroVuelo}}</td>
+            <td>{{vuelo.codigoAvion}}</td>
+            <td>{{vuelo.fechaSalida | date: 'dd-MM-yyyy'}}</td>
+            <td>{{vuelo.ciudadSalida.nombreCiudad}}</td>
+            <td>{{vuelo.ciudadDestino.nombreCiudad}}</td>
+            <td>
+              <a class="btn btn-info" (click)="seleccionarVuelo(vuelo)" >Consultar</a>
+            </td> 
+            </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
