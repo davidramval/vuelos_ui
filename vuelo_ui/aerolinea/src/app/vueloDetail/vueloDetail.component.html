@@ -1,21 +1,22 @@
 <form>
-  <h3>Detalles del vuelo</h3>
+  <h3 style="text-align:center">{{ 'HOME.TITLE 2' | translate }}</h3>
+  <br>
   <div class="row">
-    <div class="input-group mb-3 col-lg-4">
+    <div class="input-group mb-3 col-lg-4" >
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Id del vuelo</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.ID DEL VUELO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="id" [(ngModel)]="vuelo.id" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="input-group mb-3 col-lg-4">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Codigo del avion</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.CODIGO AVION' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="codigoAvion" [(ngModel)]="vuelo.codigoAvion" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="input-group mb-3 col-lg-4">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Numero del vuelo</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.NUMERO DE VUELO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="numeroVuelo" [(ngModel)]="vuelo.numeroVuelo" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
@@ -23,25 +24,28 @@
   <div class="row">
     <div class="input-group mb-3 col-lg-4">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Fecha de salida</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.FECHA DE SALIDA DEL VUELO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="fechaSalida" [(ngModel)]="vuelo.fechaSalida" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="input-group mb-3 col-lg-4">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Ciudad de salida </span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.CIUDAD SALIDA' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="ciudadSalida" [(ngModel)]="vuelo.ciudadSalida.nombreCiudad" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     <div class="input-group mb-3 col-lg-4">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Ciudad de destino</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.CIUDAD DESTINO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="ciudadDestino" [(ngModel)]="vuelo.ciudadDestino.nombreCiudad" [disabled]="true" aria-label="Username" aria-describedby="basic-addon1">
     </div>
   </div>
 
-  <h3>Informacion del pasajero</h3>
+  <br>
+
+  <h3 style="text-align:center">{{ 'HOME.TITLE 3' | translate }}</h3>
+  <br>
   <div class="row">
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
@@ -52,7 +56,7 @@
 
     <div class="input-group mb-3 col-lg-3">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Nro documento</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.NUMERO DE DOCUMENTO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="numeroDocumento" [(ngModel)]="pasajero.numeroDocumento" (change)="getPasajeroByDocumento()" [disabled]="pasajero.id" aria-label="Username" aria-describedby="basic-addon1">
       <button [hidden]="showFormPasajero">
@@ -65,7 +69,7 @@
 
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Tipo de documento</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.TIPO DE DOCUMENTO' | translate }}</span>
       </div>
       <select class="custom-select" id="inputGroupSelect01" name="tipoDocumento" [(ngModel)]="pasajero.tipoDocumento" [disabled]="pasajero.id">
         <option selected></option>
@@ -76,61 +80,63 @@
 
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Nombres</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.NOMBRES' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="nombres" [(ngModel)]="pasajero.nombres" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Apellidos</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.APELLIDOS' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="apellidos" [(ngModel)]="pasajero.apellidos" aria-label="Username" aria-describedby="basic-addon1">
     </div>
     
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Telefono</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.TELEFONO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="telefono" [(ngModel)]="pasajero.telefono" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Correo</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.CORREO' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="correo" [(ngModel)]="pasajero.correo" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div class="input-group mb-3 col-lg-3" [hidden]="!showFormPasajero">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Direccion</span>
+        <span class="input-group-text" id="basic-addon1">{{ 'HOME.DIRECCION' | translate }}</span>
       </div>
       <input type="text" class="form-control" name="direccion" [(ngModel)]="pasajero.direccion" aria-label="Username" aria-describedby="basic-addon1">
     </div>
   </div>
   <div class="row">
     <div class = "d-flex justify-content-around col-lg-12">
-      <button type="button" class="btn btn-secondary" (click)="clearPasajero()" >Limpiar pasajero</button>
-      <button type="button" class="btn btn-success" (click)="savePasajero()" [hidden]="!habilitaGuardar">Guardar pasajero</button>
-      <button type="button" class="btn btn-success" (click)="agregarPasajero()" [hidden]="!pasajero.id">Agregar a vuelo</button>
-      <button type="button" class="btn btn-primary" (click)="updatePasajero()" [hidden]="!pasajero.id">Editar pasajero</button>
+      <button type="button" class="btn btn-secondary" (click)="clearPasajero()" >{{ 'HOME.LIMPIAR PASAJERO' | translate }}</button>
+      <button type="button" class="btn btn-success" (click)="savePasajero()" [hidden]="!habilitaGuardar">{{ 'HOME.GUARDAR PASAJERO' | translate }}</button>
+      <button type="button" class="btn btn-success" (click)="agregarPasajero()" [hidden]="!pasajero.id">{{ 'HOME.AGREGAR VUELO' | translate }}</button>
+      <button type="button" class="btn btn-primary" (click)="updatePasajero()" [hidden]="!pasajero.id">{{ 'HOME.EDITAR PASAJERO' | translate }}</button>
     </div>
   </div>
 
+  <br>
 
-  <h3>Lista de pasajeros en este vuelo</h3>
+  <h3 style="text-align:center">{{ 'HOME.TITLE 4' | translate }}</h3>
+  <br>
   <table class="table">
       <thead>
         <tr>
-          <th scope="col">Id pasajero</th>
-          <th scope="col">Nombres</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">Tipo de docuemnto</th>
-          <th scope="col">Numero de documento</th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Direccion</th>
+          <th scope="col">{{ 'HOME.ID PASAJERO' | translate }}</th>
+          <th scope="col">{{ 'HOME.NOMBRES' | translate }}</th>
+          <th scope="col">{{ 'HOME.APELLIDOS' | translate }}</th>
+          <th scope="col">{{ 'HOME.TIPO DE DOCUMENTO' | translate }}</th>
+          <th scope="col">{{ 'HOME.NUMERO DE DOCUMENTO' | translate }}</th>
+          <th scope="col">{{ 'HOME.TELEFONO' | translate }}</th>
+          <th scope="col">{{ 'HOME.CORREO' | translate }}</th>
+          <th scope="col">{{ 'HOME.DIRECCION' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -144,11 +150,16 @@
           <td>{{pasajero.correo}}</td>
           <td>{{pasajero.direccion}}</td>
           <td>
-            <button type="button" class="btn btn-danger"(click)="quitarPasajero(i)" [hidden]="!pasajero.id">Quitar</button>
+            <button type="button" class="btn btn-danger"(click)="quitarPasajero(i)" [hidden]="!pasajero.id">{{ 'HOME.QUITAR' | translate }}</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <div class="row">
+      <div class = "d-flex justify-content-around col-lg-12">
+        <button style="text-align:center" type="button" class="btn btn-dark" (click)="volverListaVuelos()">{{ 'HOME.REGRESAR' | translate }}</button>
+      </div>
+    </div>   
 </form>
 
   

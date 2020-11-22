@@ -1,7 +1,31 @@
 {
     "HOME": {
-        "TITLE": "Flight information",
+        "TITLE 1": "Flight information",
+        "TITLE 2": "Flight details",
+        "TITLE 3": "Passenger information",
+        "TITLE 4": "List of passengers on this flight",
+        "ID DEL VUELO": "Flight id",
+        "NUMERO DE VUELO": "Flight number",
+        "NUMERO DE AVION": "Plane number",
+        "FECHA DE SALIDA DEL VUELO": "Flight departure date",
+        "CIUDAD SALIDA": "Departure city",
+        "CIUDAD DESTINO": "Destination city",
+        "CONSULTAR": "Consult",
+        "CODIGO AVION": "Plane code",
         "ENGLISH": "English",
+        "NUMERO DE DOCUMENTO": "Document number",
+        "TIPO DE DOCUMENTO": "Document type",
+        "NOMBRES": "Names",
+        "APELLIDOS": "Surnames",
+        "TELEFONO": "Phone",
+        "CORREO": "Mail",
+        "DIRECCION": "Address",
+        "ID PASAJERO": "Passenger id",
+        "LIMPIAR PASAJERO": "Clean passenger",
+        "AGREGAR VUELO": "Add to flight",
+        "EDITAR PASAJERO": "Edit passenger",
+        "REGRESAR": "Return",
+        "QUITAR": "Remove",
         "SPANISH": "Spanish"
     }
 }

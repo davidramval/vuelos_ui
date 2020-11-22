@@ -2,17 +2,18 @@
 
   <div style="text-align:center">
       <h1>
-        {{ 'HOME.TITLE' | translate }}
+        {{ 'HOME.TITLE 1' | translate }}
       </h1>  
+      <br>
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Id del vuelo</th>
-            <th scope="col">Numero de vuelo</th>
-            <th scope="col">Numero del avion</th>
-            <th scope="col">Fecha de salida del vuelo</th>
-            <th scope="col">Ciudad de salida</th>
-            <th scope="col">Ciudad de destino</th>
+            <th scope="col">{{ 'HOME.ID DEL VUELO' | translate }}</th>
+            <th scope="col">{{ 'HOME.NUMERO DE VUELO' | translate }}</th>
+            <th scope="col">{{ 'HOME.NUMERO DE AVION' | translate }}</th>
+            <th scope="col">{{ 'HOME.FECHA DE SALIDA DEL VUELO' | translate }}</th>
+            <th scope="col">{{ 'HOME.CIUDAD SALIDA' | translate }}</th>
+            <th scope="col">{{ 'HOME.CIUDAD DESTINO' | translate }}</th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +25,22 @@
             <td>{{vuelo.ciudadSalida.nombreCiudad}}</td>
             <td>{{vuelo.ciudadDestino.nombreCiudad}}</td>
             <td>
-              <a class="btn btn-info" (click)="seleccionarVuelo(vuelo)" >Consultar</a>
+              <a class="btn btn-info" (click)="seleccionarVuelo(vuelo)" >{{ 'HOME.CONSULTAR' | translate }}</a>
             </td> 
             </tr>
         </tbody>
       </table>
+      <select
+      [ngModel]="selectedLanguage"
+      (ngModelChange)="selectLanguage($event)">
+      <option value="es">
+          {{ 'HOME.SPANISH' | translate }}
+      </option>
+      <option value="en">
+          {{ 'HOME.ENGLISH' | translate }}
+      </option>
+  </select>
   </div>
 </div>
+
+  

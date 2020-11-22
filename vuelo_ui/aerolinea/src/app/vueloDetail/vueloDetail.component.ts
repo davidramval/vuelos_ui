@@ -4,6 +4,8 @@ import { Vuelo } from '../vuelo/interface/vuelo';
 import { ActivatedRoute } from '@angular/router';
 import { Pasajero } from '../vuelo/interface/pasajero';
 import { PasajeroService } from '../vuelo/service/pasajero.service';
+import { TranslateService } from '../../../node_modules/@ngx-translate/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +15,8 @@ import { PasajeroService } from '../vuelo/service/pasajero.service';
 })
 
 export class vueloDetailComponent implements OnInit {
+
+  selectedLanguage = 'es';
   
   private idVuelo : any;
   public vuelo : Vuelo = {
@@ -39,9 +43,11 @@ export class vueloDetailComponent implements OnInit {
  
 
   constructor(
+    public translateService: TranslateService,
     private vueloService : VueloService,
     private route: ActivatedRoute,
     private pasajeroService: PasajeroService,
+    private router: Router,
   ) {
     this.habilitaGuardar = false;
     this.showFormPasajero = false;
@@ -130,6 +136,14 @@ export class vueloDetailComponent implements OnInit {
   quitarPasajero(index){
     this.vuelo.pasajeroList.splice( index, 1 );
     this.updateVuelo();
+  }
+
+  selectLanguage(lang: string) {
+    this.translateService.use(lang);
+  }
+
+  volverListaVuelos() { 
+    this.router.navigate(['']);
   }
 
 }
